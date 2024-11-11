@@ -6,25 +6,29 @@
 </template>
 
 <script>
-import { fetchData } from '@/services/api';
+import { fetchData } from '../services/APIService'
 
 export default {
   data() {
     return {
-      jsonData: {}
-    };
+      jsonData: {},
+    }
   },
   async created() {
     try {
-      const data = await fetchData();
-      this.jsonData = data;
+      const data = await fetchData()
+      this.jsonData = data
     } catch (error) {
-      console.error('Failed to fetch data:', error);
+      console.error('Failed to fetch data:', error)
     }
-  }
-};
+  },
+}
 </script>
 
 <style scoped>
-/* Add any styles you need here */
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 </style>

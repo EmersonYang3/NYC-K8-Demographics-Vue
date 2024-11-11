@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import DataDisplay from './components/DisplayData.vue';
+import DataDisplay from './components/DisplayData.vue'
 
 export default {
   name: 'App',
   components: {
-    DataDisplay
-  }
-};
+    DataDisplay,
+  },
+}
 </script>

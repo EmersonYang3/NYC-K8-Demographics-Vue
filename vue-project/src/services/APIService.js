@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
+const API_URL = 'https://api.brawlify.com/v1/brawlers'
 
 export const fetchData = async () => {
   try {

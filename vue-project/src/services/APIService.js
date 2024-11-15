@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://api.brawlify.com/v1/brawlers'
+const API_URL = 'https://data.cityofnewyork.us/resource/h9gi-nx95.json?vehicle_type_code1=Sedan'
 
 export const fetchData = async () => {
   try {

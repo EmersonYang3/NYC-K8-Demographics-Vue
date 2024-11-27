@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://data.cityofnewyork.us/resource/f9bf-2cp4.json'
+const API_URL = 'https://data.cityofnewyork.us/resource/weg5-33pj.json?$limit=10000'
 
 export const fetchData = async () => {
   try {

@@ -26,14 +26,9 @@
 </script>
   
 <style lang="css" scoped>
-  html, body {
-    overflow-y: hidden;
-  }
-
   .search-container { 
     display: flex;
     justify-content: center;
-    height: 100vh; 
   }
   
   .searchBar {

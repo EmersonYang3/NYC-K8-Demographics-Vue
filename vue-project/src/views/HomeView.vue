@@ -15,10 +15,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  overflow-y: hidden;
-}
-
 .home-view {
   text-align: center;
   padding: 20px;

@@ -1,17 +1,11 @@
-<!-- src/App.vue -->
 <template>
   <div id="app">
-    <SearchBar/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import SearchBar from './components/searchBar.vue';
-
 export default {
-  name: 'App',
-  components: {
-    SearchBar,
-  },
+  name: 'App'
 }
 </script>

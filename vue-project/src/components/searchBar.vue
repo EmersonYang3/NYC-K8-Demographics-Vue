@@ -19,17 +19,15 @@
     },
     methods: {
       logInput() {
-        console.log(this.searchQuery);
+        console.log(this.searchQuery)
       }
     }
   }
 </script>
   
-  
 <style lang="css" scoped>
   .search-container { 
     display: flex;
-    margin-top: 40px;
     justify-content: center;
     height: 100vh; 
   }

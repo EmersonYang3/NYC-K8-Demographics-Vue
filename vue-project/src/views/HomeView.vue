@@ -1,15 +1,18 @@
 <template>
   <div class="home-view">
     <SearchBar />
+    <textData />
   </div>
 </template>
 
 <script>
-import SearchBar from '../components/searchBar.vue';
+import SearchBar from '@/components/searchBar.vue';
+import textData from '@/components/textData.vue'
 
 export default {
   components: {
-    SearchBar
+    SearchBar,
+    textData,
   },
 }
 </script>
@@ -20,3 +23,5 @@ export default {
   padding: 20px;
 }
 </style>
+
+

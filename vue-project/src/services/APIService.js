@@ -1,6 +1,10 @@
 import axios from 'axios'
 
+<<<<<<< Updated upstream
 const API_URL = 'https://data.cityofnewyork.us/resource/f9bf-2cp4.json'
+=======
+const API_URL = 'https://data.cityofnewyork.us/resource/zt9s-n5aj.json'
+>>>>>>> Stashed changes
 
 export const fetchData = async () => {
   try {

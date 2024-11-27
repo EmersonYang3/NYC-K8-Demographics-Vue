@@ -1,6 +1,6 @@
 <template>
   <div class="home-view">
-    <SearchBar @search="recieveInput"/>
+    <SearchBar />
   </div>
 </template>
 
@@ -11,15 +11,14 @@ export default {
   components: {
     SearchBar
   },
-  methods: {
-    recieveInput(query) {
-      console.log(query)
-    }
-  }
 }
 </script>
 
 <style scoped>
+body {
+  overflow-y: hidden;
+}
+
 .home-view {
   text-align: center;
   padding: 20px;

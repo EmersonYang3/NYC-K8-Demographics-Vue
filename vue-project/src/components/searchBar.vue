@@ -19,7 +19,7 @@
     },
     methods: {
       logInput() {
-        console.log(this.searchQuery); // This logs the user's input to the console
+        console.log(this.searchQuery);
       }
     }
   }

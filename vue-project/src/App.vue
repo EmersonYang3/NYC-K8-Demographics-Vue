@@ -1,17 +1,17 @@
 <!-- src/App.vue -->
 <template>
   <div id="app">
-    <DataDisplay />
+    <SearchBar/>
   </div>
 </template>
 
 <script>
-import DataDisplay from './components/DisplayData.vue'
+import SearchBar from './components/searchBar.vue';
 
 export default {
   name: 'App',
   components: {
-    DataDisplay,
+    SearchBar,
   },
 }
 </script>

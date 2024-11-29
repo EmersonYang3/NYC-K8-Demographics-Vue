@@ -1,53 +1,69 @@
 <template>
-    <div class="search-container">
-      <input 
-        class="searchBar" 
-        type="text" 
-        placeholder="Search for NYC schools..." 
-        v-model="searchQuery"
-        @keyup.enter="logInput"
-      >
-    </div>
+  <div class="search-container">
+    <input
+      id="searchField"
+      ref="searchForm"
+      class="searchBar"
+      type="text"
+      placeholder="Search for NYC schools..."
+      v-model="searchQuery"
+      @keyup.enter="logInput"
+    />
+    <p v-if="warningMessage" class="warning-message">{{ warningMessage }}</p>
+  </div>
 </template>
-  
+
 <script>
-  export default {
-    data() {
-      return {
-        searchQuery: ''
-      };
-    },
-    methods: {
-      logInput() {
-        console.log(this.searchQuery)
-      }
+export default {
+  data() {
+    return {
+      searchQuery: '',
+      warningMessage: '',
     }
-  }
+  },
+  methods: {
+    logInput() {
+      if (this.searchQuery.trim() !== '') {
+        this.$emit('searchEvent', this.searchQuery)
+        this.warningMessage = ''
+      } else {
+        this.warningMessage = 'Hawk Tuah Enter A God Damn Search.'
+      }
+    },
+  },
+}
 </script>
-  
-<style lang="css" scoped>
-  .search-container { 
-    display: flex;
-    justify-content: center;
-  }
-  
-  .searchBar {
-    width: 100%;
-    max-width: 450px;
-    height: 50px;
-    border: none;
-    background-color: #353340;
-    border-radius: 8px;
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 0 40px 0 16px;
-    box-shadow: 0 0 0 2px rgba(134, 140, 160, 0.02);
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56.966 56.966' fill='%23717790c7'%3e%3cpath d='M55.146 51.887L41.588 37.786A22.926 22.926 0 0046.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 00.083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z'/%3e%3c/svg%3e");
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: 96%;
-    color: #fff;
-  }
+
+<style scoped>
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 450px;
+  height: 50px;
+  border: none;
+  background-color: #353340;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0 40px 0 16px;
+  box-shadow: 0 0 0 2px rgba(134, 140, 160, 0.02);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56.966 56.966' fill='%23717790c7'%3e%3cpath d='M55.146 51.887L41.588 37.786A22.926 22.926 0 0046.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 00.083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z'/%3e%3c/svg%3e");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 96%;
+  color: #fff;
+}
+
+.warning-message {
+  font-family: 'Inter', sans-serif;
+  color: red;
+  font-size: 18px;
+  margin-top: 10px;
+}
 </style>
-  

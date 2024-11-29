@@ -5,19 +5,19 @@ import ErrorPageView from '@/views/ErrorPageView.vue'
 
 const routes = [
   {
-    path: '/', component: HomeView
+    path: '/',
+    component: HomeView,
   },
   {
     path: '/searchQuery=:query',
     name: 'Search',
-    component: SearchResultsView
+    component: SearchResultsView,
   },
   {
     path: '/errorQuery=:query',
     name: 'Error',
-    component: ErrorPageView
-
-  }
+    component: ErrorPageView,
+  },
 ]
 
 const router = createRouter({

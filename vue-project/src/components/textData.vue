@@ -1,6 +1,6 @@
 <template>
   <div id="text-container">
-    <p v-if="isEmptyObject(textData)">Loading Data...</p>
+    <p v-if="isEmptyObject(textData)">Loading Data, Please Be Paitent...</p>
     <p v-else>{{ textData }}</p>
   </div>
 </template>
@@ -10,9 +10,9 @@ export default {
   props: ['textData'],
   methods: {
     isEmptyObject(obj) {
-      return Object.keys(obj).length === 0;
-    }
-  }
+      return Object.keys(obj).length === 0
+    },
+  },
 }
 </script>
 

@@ -1,17 +1,19 @@
 <template>
-  <div class="search-container">
+  <form class="search-container" @submit.prevent="searchEvent">
+    <label for="searchField" class="hidden">Search</label>
     <input
       id="searchField"
       ref="searchForm"
-      class="searchBar"
+      class="search-bar"
       type="text"
-      placeholder="Search by program type..."
+      placeholder="Search by program types...."
       v-model="searchQuery"
-      @keyup.enter="searchEvent"
     />
+    <button type="submit" class="search-button">Search</button>
     <p v-if="warningMessage" class="warning-message">{{ warningMessage }}</p>
-  </div>
+  </form>
 </template>
+
 
 <script>
 export default {
@@ -41,7 +43,7 @@ export default {
   align-items: center;
 }
 
-.searchBar {
+.search-bar {
   width: 100%;
   max-width: 450px;
   height: 50px;
@@ -60,10 +62,27 @@ export default {
   color: #fff;
 }
 
+.search-button {
+  display: none;
+}
+
 .warning-message {
   font-family: 'Inter', sans-serif;
   color: red;
   font-size: 18px;
   margin-top: 10px;
+  margin-bottom: -10px;
 }
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 </style>

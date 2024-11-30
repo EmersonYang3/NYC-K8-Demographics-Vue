@@ -1,8 +1,14 @@
 <template>
   <div class="home-view">
-    <SearchBar @searchEvent="handleSearch" />
-    <textData :textData="data" />
-    <div class="chart-container"></div>
+    <header>
+      <SearchBar @searchEvent="handleSearch" />
+    </header>
+    <main>
+      <article>
+        <textData :textData="data" />
+      </article>
+      <section class="chart-container"></section>
+    </main>
   </div>
 </template>
 
@@ -45,6 +51,12 @@ export default {
   padding: 20px;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .chart-container {
   margin-top: 50px;
   display: flex;
@@ -52,4 +64,5 @@ export default {
   align-items: center;
   gap: 100px;
 }
+
 </style>

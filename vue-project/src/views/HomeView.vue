@@ -1,19 +1,37 @@
 <template>
   <div class="home-view">
     <SearchBar @searchEvent="handleSearch" />
+    <textData :textData="data" />
     <div class="chart-container"></div>
   </div>
 </template>
 
 <script>
 import SearchBar from '@/components/searchBar.vue'
+import textData from '@/components/textData.vue'
+import { fetchData } from '@/services/APIService'
 
 export default {
+  data() {
+    return {
+      data: {},
+    }
+  },
+
   components: {
     SearchBar,
+    textData,
+  },
+
+  mounted() {
+    this.getData()
   },
 
   methods: {
+    async getData() {
+      this.data = await fetchData()
+    },
+
     handleSearch(searchQuery) {
       console.log(`Received Input: ${searchQuery}`)
     },

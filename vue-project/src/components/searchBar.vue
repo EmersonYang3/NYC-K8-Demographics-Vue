@@ -5,9 +5,9 @@
       ref="searchForm"
       class="searchBar"
       type="text"
-      placeholder="Search for NYC schools..."
+      placeholder="Search by program type..."
       v-model="searchQuery"
-      @keyup.enter="logInput"
+      @keyup.enter="searchEvent"
     />
     <p v-if="warningMessage" class="warning-message">{{ warningMessage }}</p>
   </div>
@@ -22,12 +22,12 @@ export default {
     }
   },
   methods: {
-    logInput() {
+    searchEvent() {
       if (this.searchQuery.trim() !== '') {
         this.$emit('searchEvent', this.searchQuery)
         this.warningMessage = ''
       } else {
-        this.warningMessage = 'Hawk Tuah Enter A God Damn Search.'
+        this.warningMessage = 'Please enter a search.'
       }
     },
   },

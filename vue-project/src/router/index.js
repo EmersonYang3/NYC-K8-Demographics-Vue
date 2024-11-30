@@ -9,14 +9,19 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/searchQuery=:query',
+    path: '/searchQuery=:query/FuzzySuggestion=:fuzzySuggestion',
     name: 'Search',
     component: SearchResultsView,
+    props: (route) => ({
+      query: route.params.query,
+      fuzzySuggestion: route.params.fuzzySuggestion,
+    }),
   },
   {
     path: '/errorQuery=:query',
     name: 'Error',
     component: ErrorPageView,
+    props: (route) => ({ query: route.params.query }),
   },
 ]
 

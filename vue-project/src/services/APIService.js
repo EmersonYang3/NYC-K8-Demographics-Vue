@@ -8,9 +8,13 @@ const API_URL = 'https://data.cityofnewyork.us/resource/5rw7-99k7.json?$limit=10
 
 export const fetchData = async () => {
   try {
+    // * Fullfilled promise
     const response = await axios.get(API_URL);
     return response.data;
+
   } catch (error) {
+    // * Rejected Promise 
+    // TODO: handle rejected promises
     console.error('Fetching Data Error:', error);
     throw error;
   }

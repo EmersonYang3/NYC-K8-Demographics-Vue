@@ -2,6 +2,7 @@
 import Fuse from 'fuse.js'
 import { fetchData } from './APIService'
 
+// TODO: change fuzzy search method to be available programs
 export const fuzzyResult = async (searchQuery) => {
   try {
     const response = await fetchData()

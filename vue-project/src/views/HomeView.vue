@@ -49,6 +49,7 @@ export default {
 .home-view {
   text-align: center;
   padding: 20px;
+  overflow-x: hidden;
 }
 
 main {
@@ -64,5 +65,4 @@ main {
   align-items: center;
   gap: 100px;
 }
-
 </style>

@@ -6,13 +6,12 @@ import { fetchData } from './dataService'
 export const fuzzyResult = async (searchQuery) => {
   try {
     const response = await fetchData()
-    const parsedData = JSON.parse(response)
 
     const fuseOptions = {
-      keys: ['school'],
+      keys: ['program_type'],
     }
 
-    const fuse = new Fuse(parsedData, fuseOptions)
+    const fuse = new Fuse(response, fuseOptions)
 
     return fuse.search(searchQuery)
   } catch (error) {

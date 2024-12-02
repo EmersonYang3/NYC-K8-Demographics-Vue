@@ -15,7 +15,7 @@
 <script>
 import SearchBar from '@/components/searchBar.vue'
 import textData from '@/components/textData.vue'
-import { fetchData } from '@/services/APIService'
+import { fetchData } from '@/services/dataService'
 
 export default {
   data() {

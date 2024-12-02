@@ -1,6 +1,6 @@
 // src/services/fuzzySearch.js
 import Fuse from 'fuse.js'
-import { fetchData } from './APIService'
+import { fetchData } from './dataService'
 
 // TODO: change fuzzy search method to be available programs
 export const fuzzyResult = async (searchQuery) => {

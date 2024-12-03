@@ -23,7 +23,7 @@ export const fetchData = async (url = API_URL) => {
 // Combines all program statistics into a single dataset
 export const getAllProgramData = async () => {
   // apiData = [{program data for the day}]
-  const apiData = await fetchData()
+  const apiData = await fetchData();
 
   const allProgramData = apiData.reduce((acc, item) => {
 

@@ -15,9 +15,7 @@
 <script>
 import SearchBar from '@/components/searchBar.vue'
 import textData from '@/components/textData.vue'
-import { fetchData } from '@/services/dataService'
-import { getAllProgramData } from '@/services/dataService'
-import { getProgramDataByType } from '@/services/dataService'
+import * as dataService from '@/services/dataService'
 
 export default {
   data() {
@@ -37,8 +35,7 @@ export default {
 
   methods: {
     async getData() {
-      this.data = await fetchData()
-      console.log(await getAllProgramData())
+      this.data = await dataService.fetchData()
     },
 
     handleSearch(searchQuery) {

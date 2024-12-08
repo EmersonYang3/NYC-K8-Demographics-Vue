@@ -43,6 +43,7 @@ export default {
 }
 
 .search-bar {
+  display: flex;
   width: 100%;
   max-width: 450px;
   height: 50px;

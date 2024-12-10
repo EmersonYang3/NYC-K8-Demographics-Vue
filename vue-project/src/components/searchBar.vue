@@ -6,7 +6,7 @@
       ref="searchForm"
       class="search-bar"
       type="text"
-      placeholder="Search by district (e.g. 1)"
+      placeholder="Search by district number (e.g. 1)"
       v-model="searchQuery"
     />
     <button type="submit" class="search-button">Search</button>
@@ -25,6 +25,7 @@ export default {
   methods: {
     searchEvent() {
       if (this.searchQuery.trim() !== '') {
+        document.getElementById('searchField').value = ''
         this.$emit('searchEvent', this.searchQuery)
         this.warningMessage = ''
       } else {

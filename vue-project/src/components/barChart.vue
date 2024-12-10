@@ -1,5 +1,5 @@
 <template>
-  <div id="pieChart"></div>
+  <div id="barChart"></div>
 </template>
 
 <script>
@@ -37,7 +37,7 @@
 // FARE THEE WELL, BRAVE SOUL, AND GODSPEED
 
 export default {
-  props: ['labels', 'values', 'district'],
+  props: ['labels', 'values'],
 
   mounted() {
     this.plotChart()
@@ -52,31 +52,42 @@ export default {
     plotChart() {
       const data = [
         {
-          values: this.values,
-          labels: this.labels,
-          type: 'pie',
-          sort: false,
+          x: this.labels,
+          y: this.values,
+          type: 'bar',
+          marker: {
+            color: 'rgba(80,184,231,0.8)',
+          },
         },
       ]
 
       const layout = {
         title: 'Demographic (K-8)',
         paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
         font: {
           family: 'sans-serif',
           color: '#ecf0f1',
           size: 15,
         },
+        xaxis: {
+          showgrid: false,
+          zeroline: false,
+        },
+        yaxis: {
+          showgrid: false,
+          zeroline: false,
+        },
       }
 
-      Plotly.newPlot('pieChart', data, layout)
+      Plotly.newPlot('barChart', data, layout)
     },
   },
 }
 </script>
 
 <style scoped>
-#pieChart {
+#barChart {
   background-color: #1c1a1a;
   border-radius: 5px;
 }

@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import SearchResultsView from '@/views/SearchResultsView.vue'
-import ErrorPageView from '@/views/ErrorPageView.vue'
 
 const routes = [
   {
@@ -9,19 +8,12 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/searchQuery=:query/FuzzySuggestion=:fuzzySuggestion',
-    name: 'Search',
+    path: '/district/:district',
+    name: 'districtSearch',
     component: SearchResultsView,
     props: (route) => ({
-      query: route.params.query,
-      fuzzySuggestion: route.params.fuzzySuggestion,
+      districtQuery: route.params.district,
     }),
-  },
-  {
-    path: '/errorQuery=:query',
-    name: 'Error',
-    component: ErrorPageView,
-    props: (route) => ({ query: route.params.query }),
   },
 ]
 

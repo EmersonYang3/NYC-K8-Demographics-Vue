@@ -19,20 +19,20 @@ const combineData = (data) => {
   return data.reduce(
     (acc, item) => {
       if (item.category === 'All Students') {
-        acc.asian += parseFloat(item.asian_1)
-        acc.black += parseFloat(item.black_1)
-        acc.hispanic += parseFloat(item.hispanic_1)
-        acc.white += parseFloat(item.white_1)
-        acc.other += parseFloat(item.other_1)
+        acc.Asian += parseFloat(item.asian_1)
+        acc.Black += parseFloat(item.black_1)
+        acc.Hispanic += parseFloat(item.hispanic_1)
+        acc.White += parseFloat(item.white_1)
+        acc.Other += parseFloat(item.other_1)
       }
       return acc
     },
     {
-      asian: 0,
-      black: 0,
-      hispanic: 0,
-      white: 0,
-      other: 0,
+      Asian: 0,
+      Black: 0,
+      Hispanic: 0,
+      White: 0,
+      Other: 0,
     },
   )
 }

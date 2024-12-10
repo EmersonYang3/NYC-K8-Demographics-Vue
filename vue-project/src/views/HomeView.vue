@@ -1,28 +1,43 @@
 <template>
   <div class="home-view">
-    <header>
+    <header class="header">
       <SearchBar @searchEvent="handleSearch" />
     </header>
-    <main>
-      <section class="chart-container"></section>
+    <main class="main">
+      <section class="chart-container">
+        <figure v-if="data">
+          <pieChart :labels="Object.keys(data)" :values="Object.values(data)" />
+        </figure>
+        <figure v-if="data">
+          <barChart :labels="Object.keys(data)" :values="Object.values(data)" />
+        </figure>
+      </section>
     </main>
   </div>
 </template>
 
 <script>
+// Necessary Components
 import SearchBar from '@/components/searchBar.vue'
+import pieChart from '@/components/pieChart.vue'
+import barChart from '@/components/barChart.vue'
+
+// Necessary Services
 import * as dataService from '@/services/dataService'
 
+// Methods, Components, etc
 export default {
   data() {
     return {
-      data: null,
+      data: {},
       success: false,
     }
   },
 
   components: {
     SearchBar,
+    pieChart,
+    barChart,
   },
 
   mounted() {
@@ -31,39 +46,22 @@ export default {
 
   methods: {
     async getData() {
-      const districtResult = await dataService.getDataByDistrict('1')
-      console.log(districtResult)
-
       const allDistrictResult = await dataService.getAllDistrictData()
       this.data = allDistrictResult.data
       this.success = allDistrictResult.success
     },
 
     async handleSearch(searchQuery) {
-      const districtResult = await dataService.getDataByDistrict(searchQuery)
-      console.log(districtResult)
+      this.$router.push({ name: 'districtSearch', params: { district: searchQuery } })
     },
   },
 }
 </script>
 
 <style scoped>
-.home-view {
-  text-align: center;
-  padding: 20px;
-  overflow-x: hidden;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .chart-container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 100px;
 }
 </style>

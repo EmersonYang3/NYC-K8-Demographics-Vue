@@ -6,7 +6,7 @@
       ref="searchForm"
       class="search-bar"
       type="text"
-      placeholder="Search by program types...."
+      placeholder="Search by district (e.g. 1)"
       v-model="searchQuery"
     />
     <button type="submit" class="search-button">Search</button>

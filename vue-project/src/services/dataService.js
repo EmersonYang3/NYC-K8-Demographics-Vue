@@ -1,34 +1,52 @@
-// Importing Axios for making HTTP requests
-import axios, { all } from 'axios'
+import axios from 'axios'
 
-// Runaway and Homeless Youth (RHY) Daily Census - Social Services:
-// Updates daily, providing a concise and easily accessible snapshot of changes on a day-to-day basis.
-// Relatively small updates, allowing quick and easy retrieval and monitoring of daily changes.
-const API_URL = 'https://data.cityofnewyork.us/resource/5rw7-99k7.json?$limit=10000'
+const BASE_API_URL = 'https://data.cityofnewyork.us/resource/fm6n-5jvy.json?$limit=10000'
 
 // Fetching Data From API utilizing AXIOS
-export const fetchData = async (url = API_URL) => {
+export const fetchData = async (params = {}) => {
   try {
-    // * Fullfilled promise
-    const response = await axios.get(url)
-    return response.data
+    const response = await axios.get(BASE_API_URL, { params })
+    const success = response.data.length > 0
+    return { success, data: response.data }
   } catch (error) {
-    // * Rejected Promise
-    // TODO: handle rejected promises
     console.error('Fetching Data Error:', error)
-    throw error
+    return { success: false, data: [] }
   }
 }
 
-// Combines all program statistics into a single dataset
-export const getAllProgramData = async () => {
-  // apiData = [{program data for the day}]
-  const apiData = await fetchData();
-
-  const allProgramData = apiData.reduce((acc, item) => {
-
-  });
+// General function to combine data
+const combineData = (data) => {
+  return data.reduce(
+    (acc, item) => {
+      if (item.category === 'All Students') {
+        acc.asian += parseFloat(item.asian_1)
+        acc.black += parseFloat(item.black_1)
+        acc.hispanic += parseFloat(item.hispanic_1)
+        acc.white += parseFloat(item.white_1)
+        acc.other += parseFloat(item.other_1)
+      }
+      return acc
+    },
+    {
+      asian: 0,
+      black: 0,
+      hispanic: 0,
+      white: 0,
+      other: 0,
+    },
+  )
 }
 
-// Combines data only for a specified program
-export const getProgramDataByType = async (programType) => {}
+// Combines all district statistics into a single dataset
+export const getAllDistrictData = async () => {
+  const { success, data } = await fetchData()
+  const combinedData = success ? combineData(data) : null
+  return { success, data: combinedData }
+}
+
+// Combines data only for a specified district
+export const getDataByDistrict = async (districtNumber) => {
+  const { success, data } = await fetchData({ district: districtNumber })
+  const combinedData = success ? combineData(data) : null
+  return { success, data: combinedData }
+}

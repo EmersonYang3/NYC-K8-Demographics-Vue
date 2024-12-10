@@ -4,9 +4,6 @@
       <SearchBar @searchEvent="handleSearch" />
     </header>
     <main>
-      <article>
-        <textData :textData="data" />
-      </article>
       <section class="chart-container"></section>
     </main>
   </div>
@@ -14,19 +11,18 @@
 
 <script>
 import SearchBar from '@/components/searchBar.vue'
-import textData from '@/components/textData.vue'
 import * as dataService from '@/services/dataService'
 
 export default {
   data() {
     return {
-      data: {},
+      data: null,
+      success: false,
     }
   },
 
   components: {
     SearchBar,
-    textData,
   },
 
   mounted() {
@@ -35,11 +31,17 @@ export default {
 
   methods: {
     async getData() {
-      this.data = await dataService.fetchData()
+      const districtResult = await dataService.getDataByDistrict('1')
+      console.log(districtResult)
+
+      const allDistrictResult = await dataService.getAllDistrictData()
+      this.data = allDistrictResult.data
+      this.success = allDistrictResult.success
     },
 
-    handleSearch(searchQuery) {
-      console.log(`Received Input: ${searchQuery}`)
+    async handleSearch(searchQuery) {
+      const districtResult = await dataService.getDataByDistrict(searchQuery)
+      console.log(districtResult)
     },
   },
 }
@@ -59,7 +61,6 @@ main {
 }
 
 .chart-container {
-  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;

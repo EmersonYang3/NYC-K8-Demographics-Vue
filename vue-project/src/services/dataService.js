@@ -6,11 +6,19 @@ const BASE_API_URL = 'https://data.cityofnewyork.us/resource/fm6n-5jvy.json?$lim
 export const fetchData = async (params = {}) => {
   try {
     const response = await axios.get(BASE_API_URL, { params })
-    const success = response.data.length > 0
-    return { success, data: response.data }
+    if (response.data.length === 0) {
+      return {
+        success: false,
+        data: [],
+        errorMessage: 'Request Failed. No district found. Try again with a valid district.',
+      }
+    }
+    return { success: true, data: response.data }
   } catch (error) {
-    console.error('Fetching Data Error:', error)
-    return { success: false, data: [] }
+    const errorMessage = error.response
+      ? `Request failed with status code ${error.response.status}: ${error.response.statusText}. Please check the request parameters and try again.`
+      : `Request failed: ${error.message}. Please check your network connection and try again.`
+    return { success: false, data: [], errorMessage }
   }
 }
 
@@ -39,14 +47,14 @@ const combineData = (data) => {
 
 // Combines all district statistics into a single dataset
 export const getAllDistrictData = async () => {
-  const { success, data } = await fetchData()
+  const { success, data, errorMessage } = await fetchData()
   const combinedData = success ? combineData(data) : null
-  return { success, data: combinedData }
+  return { success, data: combinedData, errorMessage }
 }
 
 // Combines data only for a specified district
 export const getDataByDistrict = async (districtNumber) => {
-  const { success, data } = await fetchData({ district: districtNumber })
+  const { success, data, errorMessage } = await fetchData({ district: districtNumber })
   const combinedData = success ? combineData(data) : null
-  return { success, data: combinedData }
+  return { success, data: combinedData, errorMessage }
 }

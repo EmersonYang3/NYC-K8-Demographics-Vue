@@ -8,7 +8,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/district/:district',
+    path: '/districts/:district',
     name: 'districtSearch',
     component: SearchResultsView,
     props: (route) => ({

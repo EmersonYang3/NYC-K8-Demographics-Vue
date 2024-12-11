@@ -6,7 +6,7 @@
       ref="searchForm"
       class="search-bar"
       type="text"
-      placeholder="Search by district number (e.g. 1)"
+      placeholder="Search by district number (e.g. ALL or 1, 2, etc)"
       v-model="searchQuery"
     />
     <button type="submit" class="search-button">Search</button>
@@ -72,7 +72,7 @@ export default {
   color: red;
   font-size: 18px;
   margin-top: 10px;
-  margin-bottom: -10px;
+  margin-bottom: 0px;
 }
 
 .hidden {

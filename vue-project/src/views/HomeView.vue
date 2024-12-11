@@ -5,6 +5,7 @@
     </header>
     <main class="main">
       <section v-if="success" class="chart-container">
+        <h2>Data For All Available Districts</h2>
         <figure v-if="data">
           <pieChart :labels="Object.keys(data)" :values="Object.values(data)" />
         </figure>
@@ -76,6 +77,13 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.chart-container h2 {
+  color: white;
+  font-size: 1.25rem;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 5px;
 }
 
 .error-container {

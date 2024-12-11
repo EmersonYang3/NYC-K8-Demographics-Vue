@@ -1,0 +1,35 @@
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.chart-container h2 {
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 5px;
+}
+  
+.charts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+  
+.error-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+  
+.errorDisplay {
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid red;
+    background-color: #ffe6e6;
+    color: red;
+    text-align: center;
+}

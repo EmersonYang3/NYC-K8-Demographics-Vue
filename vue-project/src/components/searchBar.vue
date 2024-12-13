@@ -1,12 +1,12 @@
 <template>
   <form class="search-container" @submit.prevent="searchEvent">
-    <label for="searchField" class="hidden">Search</label>
     <input
       id="searchField"
       ref="searchForm"
       class="search-bar"
       type="text"
       placeholder="Search by district number (e.g. ALL or 1, 2, etc)"
+      aria-label="searchField"
       v-model="searchQuery"
     />
     <button type="submit" class="search-button">Search</button>
@@ -73,16 +73,5 @@ export default {
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 0px;
-}
-
-.hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
 }
 </style>

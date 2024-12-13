@@ -9,7 +9,6 @@
       aria-label="searchField"
       v-model="searchQuery"
     />
-    <button type="submit" class="search-button">Search</button>
     <p v-if="warningMessage" class="warning-message">{{ warningMessage }}</p>
   </form>
 </template>
@@ -45,7 +44,7 @@ export default {
 
 .search-bar {
   display: flex;
-  width: 100%;
+  width: calc(100% - 75px);
   max-width: 450px;
   height: 50px;
   border: none;
@@ -61,10 +60,6 @@ export default {
   background-repeat: no-repeat;
   background-position: 96%;
   color: #fff;
-}
-
-.search-button {
-  display: none;
 }
 
 .warning-message {

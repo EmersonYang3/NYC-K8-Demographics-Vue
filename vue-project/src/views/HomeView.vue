@@ -3,6 +3,14 @@
     <header class="header">
       <SearchBar @searchEvent="handleSearch" />
     </header>
+    <main class="main">
+      <ChartDisplay
+        :title="'Data For All Available Districts'"
+        :data="data"
+        :success="success"
+        :errorMessage="errorMessage"
+      />
+    </main>
   </div>
 </template>
 

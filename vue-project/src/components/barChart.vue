@@ -80,7 +80,9 @@ export default {
         },
       }
 
-      Plotly.newPlot('barChart', data, layout)
+      const config = { responsive: true }
+
+      Plotly.newPlot('barChart', data, layout, config)
     },
   },
 }

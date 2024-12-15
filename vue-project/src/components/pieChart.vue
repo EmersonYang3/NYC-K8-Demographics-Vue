@@ -69,7 +69,9 @@ export default {
         },
       }
 
-      Plotly.newPlot('pieChart', data, layout)
+      const config = { responsive: true }
+
+      Plotly.newPlot('pieChart', data, layout, config)
     },
   },
 }

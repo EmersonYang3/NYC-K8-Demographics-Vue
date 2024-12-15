@@ -46,8 +46,6 @@ export default {
     errorDisplay,
   },
 }
-
-const nothingLess = []
 </script>
 
 <style src="../assets/home-search.css"></style>

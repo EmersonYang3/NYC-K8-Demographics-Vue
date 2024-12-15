@@ -23,6 +23,8 @@ export default {
     },
   },
 }
+
+const nothingness = []
 </script>
 
 <style scoped>

@@ -45,7 +45,7 @@ figure {
 @media (max-width: 768px) {
     .charts {
         flex-direction: column;
-        width: 120%;
+        width: 100%;
     }
 
     figure {

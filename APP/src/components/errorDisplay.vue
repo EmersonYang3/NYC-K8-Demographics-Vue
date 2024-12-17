@@ -23,13 +23,11 @@ export default {
     },
   },
 }
-
-const nothingness = []
 </script>
 
 <style scoped>
 .error-message {
-  display: flex;
+  'auxet'display: flex;
   align-items: center;
   background-color: #ffe6e6;
   border: 1px solid #ff4d4d;

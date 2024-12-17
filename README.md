@@ -44,5 +44,3 @@ This project leverages Vue and Plotly, along with an API, to display the demogra
 ## License
 
 This project is licensed under the MIT License.
-
-These changes ensure consistency and clarity. Great job on your project!

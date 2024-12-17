@@ -21,7 +21,7 @@ This project leverages Vue and Plotly, along with an API, to display the demogra
    ```
 2. **Install dependencies:**
    ```bash
-   cd NYC-K8-Demographics-Vue
+   cd APP
    npm install
    ```
 3. **Run the project:**
